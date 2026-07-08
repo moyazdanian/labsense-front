@@ -1,4 +1,5 @@
 import { Activity, Heart, Menu } from "lucide-react";
+import Link from "next/link";
 
 /*
   Header
@@ -21,16 +22,18 @@ export default function Header({ onMenuClick }) {
               <Menu className="w-5 h-5" />
             </button>
           )}
-          <div className="w-9 h-9 rounded-xl bg-[#0E7C7B] flex items-center justify-center">
-            <Activity className="w-5 h-5 text-white" strokeWidth={2.5} />
-          </div>
-          <span className="font-extrabold text-lg tracking-tight">
-            لب‌سنس <span className="text-[#0E7C7B]">Lab Sense</span>
-          </span>
+          <Link href="/" className="flex gap-3 items-center">
+            <div className="w-9 h-9 rounded-xl bg-[#0E7C7B] flex items-center justify-center">
+              <Activity className="w-5 h-5 text-white" strokeWidth={2.5} />
+            </div>
+            <span className="font-extrabold text-lg tracking-tight">
+              <span className="text-[#0E7C7B]">Lab Lens</span>
+            </span>
+          </Link>
         </div>
         <span className="hidden sm:flex items-center gap-1.5 text-xs text-[#5C7A7C] font-medium">
           <Heart className="w-3.5 h-3.5 text-[#D14343]" />
-          تحلیل هوشمند آزمایش خون
+          تحلیل هوشمند آزمایشات پزشکی
         </span>
       </div>
     </header>

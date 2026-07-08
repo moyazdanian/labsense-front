@@ -12,17 +12,20 @@ export default function Footer() {
                 <Activity className="w-5 h-5 text-white" strokeWidth={2.5} />
               </div>
               <span className="font-extrabold text-lg tracking-tight">
-                لب‌سنس <span className="text-[#0E7C7B]">Lab Sense</span>
+                <span className="text-[#0E7C7B]">Lab lens</span>
               </span>
             </div>
             <p className="text-xs text-[#5C7A7C] leading-7">
-              تحلیل هوشمند جواب آزمایش خون با هوش مصنوعی — همراه با توصیه‌های تغذیه و سبک زندگی.
+              تحلیل هوشمند جواب آزمایشات با هوش مصنوعی — همراه با توصیه‌های
+              تغذیه و سبک زندگی.
             </p>
           </div>
 
           {/* راه‌های ارتباطی */}
           <div>
-            <p className="text-sm font-extrabold text-[#0B2B2E] mb-4">راه‌های ارتباطی</p>
+            <p className="text-sm font-extrabold text-[#0B2B2E] mb-4">
+              راه‌های ارتباطی
+            </p>
             <ul className="space-y-3 text-xs text-[#5C7A7C]">
               <li className="flex items-center gap-2.5">
                 <span className="w-8 h-8 rounded-lg bg-[#0E7C7B]/10 flex items-center justify-center shrink-0">
@@ -33,7 +36,7 @@ export default function Footer() {
                   className="hover:text-[#0E7C7B] transition-colors"
                   dir="ltr"
                 >
-                  support@labsense.ir
+                  support@labLense.ir
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -41,40 +44,45 @@ export default function Footer() {
                   <Phone className="w-3.5 h-3.5 text-[#0E7C7B]" />
                 </span>
                 <a
-                  href="tel:+982100000000"
+                  href="tel:+989396794196"
                   className="hover:text-[#0E7C7B] transition-colors"
                   style={{ fontFamily: "var(--font-mono)" }}
                   dir="ltr"
                 >
-                  ۰۲۱-۰۰۰۰۰۰۰۰
+                  09396794196
                 </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <span className="w-8 h-8 rounded-lg bg-[#0E7C7B]/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-3.5 h-3.5 text-[#0E7C7B]" />
-                </span>
-                <span>تهران، ایران</span>
               </li>
             </ul>
           </div>
 
           {/* لینک‌های مفید */}
           <div>
-            <p className="text-sm font-extrabold text-[#0B2B2E] mb-4">لینک‌های مفید</p>
+            <p className="text-sm font-extrabold text-[#0B2B2E] mb-4">
+              لینک‌های مفید
+            </p>
             <ul className="space-y-3 text-xs text-[#5C7A7C]">
               <li>
-                <a href="#faq" className="hover:text-[#0E7C7B] transition-colors">
+                <a
+                  href="#faq"
+                  className="hover:text-[#0E7C7B] transition-colors"
+                >
                   سوالات متداول
                 </a>
               </li>
               <li>
-                <a href="/terms" className="hover:text-[#0E7C7B] transition-colors">
+                <a
+                  href="/terms"
+                  className="hover:text-[#0E7C7B] transition-colors"
+                >
                   شرایط استفاده
                 </a>
               </li>
               <li>
-                <a href="/privacy" className="hover:text-[#0E7C7B] transition-colors">
-                  حریم خصوصی
+                <a
+                  href="/blogs"
+                  className="hover:text-[#0E7C7B] transition-colors"
+                >
+                  مقالات
                 </a>
               </li>
             </ul>
@@ -83,10 +91,14 @@ export default function Footer() {
 
         <div className="border-t border-[#E0F1EF] mt-8 pt-6 text-center">
           <p className="text-xs text-[#5C7A7C] leading-6">
-            لب‌سنس صرفاً ابزار اطلاع‌رسانی است و جایگزین مشاوره پزشکی تخصصی نیست.
+            لب‌لنز صرفاً ابزار اطلاع‌رسانی است و جایگزین مشاوره پزشکی تخصصی
+            نیست.
           </p>
-          <p className="text-[11px] text-[#9CB5B6] mt-2" style={{ fontFamily: "var(--font-mono)" }}>
-            © {new Date().getFullYear()} Lab Sense — تمام حقوق محفوظ است
+          <p
+            className="text-[11px] text-[#9CB5B6] mt-2"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            © {new Date().getFullYear()} Lab Lens — تمام حقوق محفوظ است
           </p>
         </div>
       </div>

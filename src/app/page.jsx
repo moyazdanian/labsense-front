@@ -25,6 +25,7 @@ import {
 import { analysisApi } from "../lib/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { PRICING, formatToman } from "@/lib/pricing";
 
 export default function LabReportAnalyzerPage() {
   const [stage, setStage] = useState("upload"); // upload | analyzing | result
@@ -163,7 +164,7 @@ export default function LabReportAnalyzerPage() {
 
       <div className="flex flex-col items-center gap-2 mt-6">
         <p className="text-xs text-[#5C7A7C]">
-          هزینه هر تحلیل ۳۹,۰۰۰ تومان — اولین تحلیل با تخفیف ویژه ۹,۰۰۰ تومان
+          {` هزینه هر تحلیل ${formatToman(PRICING.firstAnalysis.originalPrice)}  — اولین تحلیل با تخفیف ویژه ${formatToman(PRICING.firstAnalysis.price)} `}
         </p>
         <Link href="/sample">
           <button className="text-xs text-[#0E7C7B] font-bold underline underline-offset-4 decoration-[#0E7C7B]/30 hover:decoration-[#0E7C7B]">

@@ -9,7 +9,7 @@ import MedicalLoading from "./Loading";
     - onAnalyze(file): با کلیک روی "شروع تحلیل"، فایل واقعی (File) را به والد می‌دهد
     - isAnalyzing: غیرفعال کردن دکمه در حین تحلیل
 */
-export default function UploadZone({ onAnalyze, isAnalyzing}) {
+export default function UploadZone({ onAnalyze, isAnalyzing }) {
   const [file, setFile] = useState(null);
   const [dragOver, setDragOver] = useState(false);
   const inputRef = useRef(null);
@@ -41,6 +41,7 @@ export default function UploadZone({ onAnalyze, isAnalyzing}) {
       <span className="absolute bottom-4 left-4 w-3 h-3 border-b-2 border-l-2 border-[#0E7C7B]/30 rounded-bl" />
 
       <div className="mx-auto w-16 h-16 rounded-2xl bg-[#0E7C7B]/10 flex items-center justify-center mb-5">
+      
         {file ? (
           <FileImage className="w-8 h-8 text-[#0E7C7B]" strokeWidth={1.75} />
         ) : (
@@ -56,10 +57,10 @@ export default function UploadZone({ onAnalyze, isAnalyzing}) {
       ) : (
         <>
           <p className="text-[#0B2B2E] font-bold text-lg mb-1">
-            عکس برگه آزمایش را اینجا رها کنید
+            عکس برگه آزمایش را اینجا آپلود کنید
           </p>
           <p className="text-sm text-[#5C7A7C] mb-6">
-            فرمت‌های JPG و PNG — حداکثر حجم ۱۰ مگابایت
+            فرمت‌های JPG ، PNG و JPEG — حداکثر حجم ۱۰ مگابایت
           </p>
         </>
       )}
