@@ -11,7 +11,7 @@ const vazirmatn = localFont({
 })
 
 export const metadata = {
-  title: 32574748,
+  title: "32574748",
   // description: "تحلیل هوشمند آزمایشات پزشکی",
 };
 
