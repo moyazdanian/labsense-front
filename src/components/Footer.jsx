@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-[#E0F1EF] bg-white mt-10">
       <div className="max-w-5xl mx-auto px-5 sm:px-8 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* معرفی */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
@@ -86,6 +86,23 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <a
+              referrerPolicy="origin"
+              target="_blank"
+              href="https://trustseal.enamad.ir/?id=755635&Code=DtFQx2QTQeFwM3RwxbZ3tcwwQa0IOPvW"
+            >
+              <img
+                referrerPolicy="origin"
+                src="https://trustseal.enamad.ir/logo.aspx?id=755635&Code=DtFQx2QTQeFwM3RwxbZ3tcwwQa0IOPvW"
+                alt=""
+                className="cursor:pointer"
+                code="DtFQx2QTQeFwM3RwxbZ3tcwwQa0IOPvW"
+              />
+              {/* <img src="enamad.png" className="w-30" /> */}
+            </a>
           </div>
         </div>
 
