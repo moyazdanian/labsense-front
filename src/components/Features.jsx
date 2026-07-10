@@ -27,7 +27,9 @@ export default function Features() {
   return (
     <section className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
       <div className="text-center max-w-xl mx-auto mb-10">
-        <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">چرا لب‌لنس؟</h2>
+        <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">
+          چرا لب‌لنز؟
+        </h2>
         <p className="text-sm text-[#5C7A7C] leading-7">
           همه‌چیز برای فهمیدن جواب آزمایش، در یک‌جا
         </p>

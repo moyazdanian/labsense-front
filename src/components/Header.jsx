@@ -1,5 +1,6 @@
 import { Activity, Heart, Menu } from "lucide-react";
 import Link from "next/link";
+import { Logo } from "./Logo";
 
 /*
   Header
@@ -23,9 +24,9 @@ export default function Header({ onMenuClick }) {
             </button>
           )}
           <Link href="/" className="flex gap-3 items-center">
-            <div className="w-9 h-9 rounded-xl bg-[#0E7C7B] flex items-center justify-center">
-              <Activity className="w-5 h-5 text-white" strokeWidth={2.5} />
-            </div>
+            {/* <div className="w-9 h-9 rounded-xl bg-[#0E7C7B] flex items-center justify-center"> */}
+            <img src="/logo.svg" alt="Lab Lens" className="w-10 h-10" />
+            {/* </div> */}
             <span className="font-extrabold text-lg tracking-tight">
               <span className="text-[#0E7C7B]">Lab Lens</span>
             </span>

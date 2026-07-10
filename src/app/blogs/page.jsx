@@ -1,10 +1,10 @@
 // components/blog/HomepageBlogSection.tsx
 // Usage: <HomepageBlogSection /> inside your homepage  (Server Component)
 
-import Link from "next/link";
 import { getFeaturedPosts } from "@/lib/blog-api";
 import BlogCard from "./BlogCard";
 import MedicalLoading from "@/components/Loading";
+import Link from "next/link";
 
 export default async function HomepageBlogSection() {
   let posts = [];
@@ -21,16 +21,29 @@ export default async function HomepageBlogSection() {
 
   return (
     <section
-      className="py-20 bg-gray-50"
+      className="py-20"
       aria-labelledby="blog-section-heading"
     >
+      <nav
+        aria-label="breadcrumb"
+        className="text-sm text-gray-400 mb-6 flex items-center gap-2"
+      >
+        <Link href="/" className="hover:text-indigo-600 transition-colors">
+          خانه
+        </Link>
+        <span>/</span>
+        <Link href="/blogs" className="hover:text-indigo-600 transition-colors">
+          بلاگ
+        </Link>
+      
+      </nav>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12">
           <div className="text-center">
             <h1 className="font-extrabold text-4xl mb-2">آخرین مقالات</h1>
             <p className="mt-3 text-gray-500 ">
-              راهنماها، نکات و تجربیات کاربردی برای کمک به رشد شما.
+              راهنماها، نکات و تجربیات کاربردی.
             </p>
           </div>
         </div>

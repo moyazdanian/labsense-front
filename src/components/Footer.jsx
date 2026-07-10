@@ -1,4 +1,4 @@
-import { Activity, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -8,9 +8,7 @@ export default function Footer() {
           {/* معرفی */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-9 h-9 rounded-xl bg-[#0E7C7B] flex items-center justify-center">
-                <Activity className="w-5 h-5 text-white" strokeWidth={2.5} />
-              </div>
+              <img src="/logo.svg" alt="Lab Lens" className="w-10 h-10" />
               <span className="font-extrabold text-lg tracking-tight">
                 <span className="text-[#0E7C7B]">Lab lens</span>
               </span>

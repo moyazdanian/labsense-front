@@ -5,6 +5,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getBlogPost, getFeaturedPosts } from "@/lib/blog-api";
 import BlogCard from "../BlogCard";
+import LabTestCTA from "./LabTestCTA_1";
 
 // ─── generateStaticParams (optional ISR) ─────────────────────────────────────
 
@@ -54,6 +55,8 @@ export default async function BlogPostPage({ params }) {
   const slug = await params.slug;
   const data = await getBlogPost(slug).catch(() => null);
   const post = data.data;
+
+  console.log(post);
 
   if (!post) notFound();
 
@@ -196,30 +199,7 @@ export default async function BlogPostPage({ params }) {
         </div>
 
         {/* ── CTA Banner ─────────────────────────────────────────────── */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-16">
-          <div className="rounded-3xl bg-gradient-to-br from-indigo-600 to-violet-600 p-10 text-center text-white relative overflow-hidden shadow-xl">
-            <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white opacity-5 blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-white opacity-5 blur-2xl pointer-events-none" />
-
-            <div className="relative">
-              <p className="text-indigo-200 text-sm font-medium uppercase tracking-wider mb-3">
-                قدم بعدی شما
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-                {ctaTitle}
-              </h2>
-              <p className="text-indigo-200 max-w-md mx-auto mb-8 leading-relaxed">
-                {ctaDesc}
-              </p>
-              <Link
-                href={ctaUrl}
-                className="inline-block bg-white text-indigo-600 font-bold px-10 py-4 rounded-full hover:bg-indigo-50 transition-colors shadow-lg text-base"
-              >
-                {ctaBtn} →
-              </Link>
-            </div>
-          </div>
-        </div>
+        <LabTestCTA href="/" ctaTitle={ctaTitle} ctaDesc={ctaDesc} ctaUrl={ctaUrl} ctaBtn={ctaBtn} />
 
         {/* ── Related Posts ──────────────────────────────────────────── */}
         {related.length > 0 && (
