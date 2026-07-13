@@ -18,6 +18,14 @@ export default function UploadZone({ onAnalyze, isAnalyzing }) {
     if (files && files[0]) setFile(files[0]);
   };
 
+  if (isAnalyzing) {
+    return (
+      <div className="relative rounded-3xl border-2 border-dashed transition-colors duration-200 p-8 sm:p-12 text-center">
+        <MedicalLoading />
+      </div>
+    );
+  }
+
   return (
     <div
       onDragOver={(e) => {
@@ -41,7 +49,6 @@ export default function UploadZone({ onAnalyze, isAnalyzing }) {
       <span className="absolute bottom-4 left-4 w-3 h-3 border-b-2 border-l-2 border-[#0E7C7B]/30 rounded-bl" />
 
       <div className="mx-auto w-16 h-16 rounded-2xl bg-[#0E7C7B]/10 flex items-center justify-center mb-5">
-      
         {file ? (
           <FileImage className="w-8 h-8 text-[#0E7C7B]" strokeWidth={1.75} />
         ) : (

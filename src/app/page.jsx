@@ -2,20 +2,14 @@
 
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { X, AlertTriangle } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
 import Faq from "../components/Faq";
-import Footer from "../components/Footer";
 import UploadZone from "../components/UploadZone";
-import AnalyzingState from "../components/AnalyzingState";
-import ResultsReport from "../components/ResultsReport";
 import AuthDialogs from "../components/auth/AuthDialogs";
 import PaymentDialog from "../components/payment/PaymentDialog";
-import Sidebar from "../components/sidebar/Sidebar";
-import MobileSidebar from "../components/sidebar/MobileSidebar";
 import { sampleResults } from "../lib/sampleResults";
 import { useUser, useLogout } from "../lib/hooks/useAuth";
 import {
@@ -26,7 +20,6 @@ import { analysisApi } from "../lib/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PRICING, formatToman } from "@/lib/pricing";
-
 export default function LabReportAnalyzerPage() {
   const [stage, setStage] = useState("upload"); // upload | analyzing | result
 

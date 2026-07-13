@@ -5,6 +5,7 @@ import { ThemeProvider } from "./providers/ThemeProviders";
 import { Toaster } from "@/components/ui/sonner";
 import AppLayout from "@/components/AppLayout";
 import NextTopLoader from "nextjs-toploader";
+import { Analytics } from "@vercel/analytics/next";
 
 const vazirmatn = localFont({
   src: "../../public/fonts/Vazir.ttf"
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
           />
             </Providers>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
