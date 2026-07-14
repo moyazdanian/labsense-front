@@ -7,6 +7,8 @@ import AppLayout from "@/components/AppLayout";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { LoadingProvider } from "@/lib/contexts/LoadingContext";
+import Loading from "./loading";
 
 const vazirmatn = localFont({
   src: "../../public/fonts/Vazir.ttf"
@@ -44,15 +46,17 @@ export default function RootLayout({ children }) {
             zIndex={1600}
             showAtBottom={false}
           />
+          <LoadingProvider>
             <AppLayout>
             {children}
             </AppLayout>
+            <Loading />
+            </LoadingProvider>
             <Toaster 
             position="top-center" 
-            richColors 
             closeButton 
             dir="rtl"
-            
+            className="text-red-600"
           />
             </Providers>
         </ThemeProvider>

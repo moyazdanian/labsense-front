@@ -57,7 +57,7 @@ export default function PhoneLoginDialog({ open, onOpenChange, onSendOtp, isLoad
           </div>
           <DialogHeader className="text-right space-y-1">
             <DialogTitle className="text-white text-lg font-extrabold">
-              ورود به لب‌سنس
+              ورود به لب‌لنز
             </DialogTitle>
             <DialogDescription className="text-white/60 text-xs leading-6">
               برای مشاهده نتیجه تحلیل و دسترسی به تاریخچه آزمایش‌هایتان، ابتدا با شماره موبایل وارد شوید.
@@ -100,7 +100,7 @@ export default function PhoneLoginDialog({ open, onOpenChange, onSendOtp, isLoad
           </Button>
 
           <p className="text-[11px] text-[#5C7A7C] text-center leading-6">
-            با ادامه دادن، شرایط استفاده و حریم خصوصی لب‌سنس را می‌پذیرید.
+            با ادامه دادن، شرایط استفاده و حریم خصوصی لب‌لنز را می‌پذیرید.
           </p>
         </div>
       </DialogContent>

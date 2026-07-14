@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { Upload, FileImage, Activity } from "lucide-react";
 import MedicalLoading from "./Loading";
+import Loading from "@/app/loading";
 
 /*
   props:
@@ -17,14 +18,6 @@ export default function UploadZone({ onAnalyze, isAnalyzing }) {
   const handleFiles = (files) => {
     if (files && files[0]) setFile(files[0]);
   };
-
-  if (isAnalyzing) {
-    return (
-      <div className="relative rounded-3xl border-2 border-dashed transition-colors duration-200 p-8 sm:p-12 text-center">
-        <MedicalLoading />
-      </div>
-    );
-  }
 
   return (
     <div

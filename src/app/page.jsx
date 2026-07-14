@@ -20,8 +20,12 @@ import { analysisApi } from "../lib/api";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PRICING, formatToman } from "@/lib/pricing";
+import Loading from "./loading";
+import { useLoading } from "@/lib/contexts/LoadingContext";
+import { toast } from "sonner";
 export default function LabReportAnalyzerPage() {
   const [stage, setStage] = useState("upload"); // upload | analyzing | result
+  const { isLoading, showLoading, hideLoading } = useLoading();
 
   // وضعیت کاربر از react-query — منبع واحد حقیقت برای احراز هویت
   const { data: user } = useUser(); // undefined/null = خارج، در غیر این صورت { id, phone, credits, has_used_first_offer }
@@ -54,12 +58,14 @@ export default function LabReportAnalyzerPage() {
        (فایل به‌خاطر ریدایرکت کامل به درگاه، در حافظه باقی نمی‌ماند)
   */
   const handleAnalyzeRequest = (file) => {
-    setStage("analyzing");
+    // setStage("analyzing");
+    showLoading();
     setPendingFile(file);
     setErrorMessage("");
 
     if (!user) {
       setStage("upload");
+      hideLoading();
       setAuthOpen(true);
       return;
     }
@@ -71,6 +77,7 @@ export default function LabReportAnalyzerPage() {
       runAnalysis(file);
     } else {
       setStage("upload");
+      hideLoading();
       setPaymentOpen(true);
     }
   };
@@ -78,7 +85,8 @@ export default function LabReportAnalyzerPage() {
   const runAnalysis = async (file) => {
     if (!file) return;
 
-    setStage("analyzing");
+    // setStage("analyzing");
+    showLoading();
     setErrorMessage("");
 
     try {
@@ -91,6 +99,8 @@ export default function LabReportAnalyzerPage() {
       setPendingFile(null);
     } catch (e) {
       setErrorMessage(e?.message || "خطا در تحلیل تصویر. دوباره تلاش کنید.");
+      toast.error(e?.message || "خطا در تحلیل تصویر. دوباره تلاش کنید.");
+      hideLoading();
       setStage("upload");
     }
   };
@@ -128,12 +138,13 @@ export default function LabReportAnalyzerPage() {
   };
 
   const isFirstAnalysis = user ? !user.has_used_first_offer : true;
-  const isAnalyzing = stage === "analyzing";
+  const isAnalyzing = true;
+  // const isAnalyzing = stage === "analyzing";
 
   return (
     <div>
       <Hero />
-      <UploadZone onAnalyze={handleAnalyzeRequest} isAnalyzing={isAnalyzing} />
+      <UploadZone onAnalyze={handleAnalyzeRequest} isAnalyzing={isLoading} />
       {/* جریان ورود: شماره موبایل -> OTP */}
       <AuthDialogs
         open={authOpen}

@@ -3,6 +3,7 @@ import MedicalLoading from "@/components/Loading";
 import ResultsReport from "@/components/ResultsReport";
 import { useGetAnalysis } from "@/lib/hooks/useAnalysis";
 import { Activity, X } from "lucide-react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -83,10 +84,13 @@ export default function AnalysisPage() {
           <h2 className="font-extrabold text-xl sm:text-2xl">
             نتیجه تحلیل شما
           </h2>
-          <button className="text-xs sm:text-sm font-bold text-[#5C7A7C] hover:text-[#0E7C7B] flex items-center gap-1.5 transition-colors">
+          <Link
+            href="/"
+            className="text-xs sm:text-sm font-bold text-[#5C7A7C] hover:text-[#0E7C7B] flex items-center gap-1.5 transition-colors"
+          >
             <X className="w-4 h-4" />
             آپلود فایل جدید
-          </button>
+          </Link>
         </div>
         <ResultsReport data={result} />
       </>
