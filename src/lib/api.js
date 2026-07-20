@@ -66,6 +66,9 @@ export const paymentApi = {
   */
   initiate: (payload) =>
     axiosInstance.post("/payments/initiate", payload).then((res) => res.data),
+
+  // تاریخچه پرداخت‌ها — برای صفحه پروفایل
+  list: () => axiosInstance.get("/payments").then((res) => res.data),
 };
 
 // ---------- Analyses ----------

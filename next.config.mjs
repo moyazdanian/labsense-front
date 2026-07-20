@@ -5,11 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.lablense.ir', // دامنه تصاویر خود را وارد کنید
+        hostname: 'api.lablens.ir', // دامنه تصاویر خود را وارد کنید
         pathname: '/**', // یا مسیر دقیق‌تر
       },
     ],
   },
+  
 };
 
 export default nextConfig;

@@ -1,19 +1,16 @@
 "use client";
 
-import { useAnalysisHistory } from "@/lib/hooks/useAnalysis";
 import { useLogout, useUser } from "@/lib/hooks/useAuth";
 import { useState } from "react";
-import Sidebar from "./sidebar/Sidebar";
 import MobileSidebar from "./sidebar/MobileSidebar";
 import Header from "./Header";
 import AuthDialogs from "./auth/AuthDialogs";
-import PaymentDialog from "./payment/PaymentDialog";
 import Footer from "./Footer";
 
 export default function AppLayout({ children }) {
   const { data: user } = useUser();
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  const { data: history } = useAnalysisHistory();
+  const [authOpen, setAuthOpen] = useState(false);
   const { mutate: handleLogout } = useLogout();
 
   return (
@@ -40,29 +37,22 @@ export default function AppLayout({ children }) {
         }}
       />
 
-      {/* نوار کناری — فقط برای کاربران لاگین‌کرده */}
-      {user && (
-        <>
-          <Sidebar
-            history={history || []}
-            phone={user.phone}
-            credits={user.credits}
-            onLogout={handleLogout}
-          />
-          <MobileSidebar
-            open={mobileSidebarOpen}
-            onOpenChange={setMobileSidebarOpen}
-            history={history || []}
-            phone={user.phone}
-            credits={user.credits}
-            onLogout={handleLogout}
-          />
-        </>
-      )}
+      {/* سایدبار موبایل — منوی سایت (برای همه کاربران) */}
+      <MobileSidebar
+        open={mobileSidebarOpen}
+        onOpenChange={setMobileSidebarOpen}
+        user={user}
+        onLoginClick={() => setAuthOpen(true)}
+        onLogout={handleLogout}
+      />
+
+      {/* دیالوگ ورود مشترک (هدر + سایدبار موبایل) */}
+      <AuthDialogs open={authOpen} onOpenChange={setAuthOpen} />
 
       <div className="relative flex-1 min-w-0">
         <Header
-          onMenuClick={user ? () => setMobileSidebarOpen(true) : undefined}
+          onMenuClick={() => setMobileSidebarOpen(true)}
+          onLoginClick={() => setAuthOpen(true)}
         />
 
         <main className="relative max-w-5xl mx-auto px-5 sm:px-8 py-10 sm:py-14">

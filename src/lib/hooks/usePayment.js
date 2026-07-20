@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
-import { paymentApi } from "../api";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { paymentApi, getToken } from "../api";
 
 /*
   useInitiatePayment
@@ -13,5 +13,18 @@ import { paymentApi } from "../api";
 export function useInitiatePayment() {
   return useMutation({
     mutationFn: (payload) => paymentApi.initiate(payload),
+  });
+}
+
+/*
+  usePaymentHistory
+  ----------------------------
+  تاریخچه پرداخت‌های کاربر (برای صفحه پروفایل)
+*/
+export function usePaymentHistory() {
+  return useQuery({
+    queryKey: ["payments"],
+    queryFn: paymentApi.list,
+    enabled: !!getToken(),
   });
 }

@@ -5,7 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { AlertTriangle } from "lucide-react";
 
 import Hero from "../components/Hero";
-import Features from "../components/Features";
+import HowItWorks from "../components/HowItWorks";
 import Faq from "../components/Faq";
 import UploadZone from "../components/UploadZone";
 import AuthDialogs from "../components/auth/AuthDialogs";
@@ -36,7 +36,6 @@ export default function LabReportAnalyzerPage() {
 
   const [authOpen, setAuthOpen] = useState(false);
   const [paymentOpen, setPaymentOpen] = useState(false);
-  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   // فایلی که کاربر انتخاب کرده، تا بعد از ورود/پرداخت بتوان تحلیل را ادامه داد
   const [pendingFile, setPendingFile] = useState(null);
@@ -96,6 +95,7 @@ export default function LabReportAnalyzerPage() {
         JSON.stringify(data.result),
       );
       router.push(`/analysis/${data.id}`);
+      hideLoading();
       setPendingFile(null);
     } catch (e) {
       setErrorMessage(e?.message || "خطا در تحلیل تصویر. دوباره تلاش کنید.");
@@ -177,7 +177,7 @@ export default function LabReportAnalyzerPage() {
         </Link>
       </div>
 
-      <Features />
+      <HowItWorks />
       <Faq />
 
       {/* {stage === "analyzing" && <AnalyzingState />} */}

@@ -8,6 +8,7 @@ const STATIC_ROUTES = [
   { path: "/", priority: 1.0, changeFrequency: "daily" },
   { path: "/sample", priority: 0.8, changeFrequency: "weekly" },
   { path: "/blogs", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/terms", priority: 0.5, changeFrequency: "monthly" },
 ];
 
 export default async function sitemap() {
