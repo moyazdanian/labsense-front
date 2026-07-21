@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -6,14 +6,15 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-5 sm:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* معرفی */}
-          <div>
-            <div className="flex items-center gap-2.5 mb-3">
-              <img src="/logo.svg" alt="Lab Lens" className="w-10 h-10" />
-              <span className="font-extrabold text-lg tracking-tight">
-                <span className="text-[#0E7C7B]">Lab lens</span>
-              </span>
+          <div className="flex flex-col items-center space-y-2">
+            <div className="w-46 -mt-10">
+              <img
+                src="/logo.png"
+                alt="Lab Lens"
+                className="w-full h-auto object-contain"
+              />
             </div>
-            <p className="text-xs text-[#5C7A7C] leading-7">
+            <p className="text-xs text-[#5C7A7C] leading-6 text-center -mt-15 -mr-4">
               تحلیل هوشمند جواب آزمایشات با هوش مصنوعی — همراه با توصیه‌های
               تغذیه و سبک زندگی.
             </p>
@@ -34,20 +35,23 @@ export default function Footer() {
                   className="hover:text-[#0E7C7B] transition-colors"
                   dir="ltr"
                 >
-                  support@labLense.ir
+                  email: support@labLens.ir
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="w-8 h-8 rounded-lg bg-[#0E7C7B]/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-3.5 h-3.5 text-[#0E7C7B]" />
+                  <MessageCircle className="w-4 h-4 text-[#0E7C7B]" />
                 </span>
+
                 <a
-                  href="tel:+989396794196"
-                  className="hover:text-[#0E7C7B] transition-colors"
+                  href="https://wa.me/989396794196"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25D366] transition-colors"
                   style={{ fontFamily: "var(--font-mono)" }}
                   dir="ltr"
                 >
-                  09396794196
+                  whatsapp: 09396794196
                 </a>
               </li>
             </ul>

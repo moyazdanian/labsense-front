@@ -117,7 +117,7 @@ export default function HowItWorks() {
     <section className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
       <div className="text-center max-w-xl mx-auto mb-12">
         <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">
-          مسیر تحلیل آزمایش شما
+          مسیر تحلیل آزمایش 
         </h2>
         <p className="text-sm text-[#5C7A7C] leading-7">
           از عکس برگه آزمایش تا گزارش قابل فهم — فقط در چند دقیقه

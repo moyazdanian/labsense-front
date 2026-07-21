@@ -1,6 +1,13 @@
 "use client";
 
-import { ChevronDown, CreditCard, History, LogOut, Menu, User } from "lucide-react";
+import {
+  ChevronDown,
+  CreditCard,
+  History,
+  LogOut,
+  Menu,
+  User,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -32,7 +39,7 @@ export default function Header({ onMenuClick, onLoginClick }) {
   return (
     <header className="relative border-b border-[#E0F1EF] bg-white/70 backdrop-blur sticky top-0 z-20">
       <div className="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center">
           {onMenuClick && (
             <button
               onClick={onMenuClick}
@@ -42,11 +49,12 @@ export default function Header({ onMenuClick, onLoginClick }) {
               <Menu className="w-5 h-5" />
             </button>
           )}
-          <Link href="/" className="flex gap-3 items-center">
-            <img src="/logo.svg" alt="Lab Lens" className="w-10 h-10" />
-            <span className="font-extrabold text-lg tracking-tight">
-              <span className="text-[#0E7C7B]">Lab Lens</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="Lab Lens"
+              className="w-auto h-28 object-contain mt-2"
+            />
           </Link>
         </div>
 
@@ -80,7 +88,9 @@ export default function Header({ onMenuClick, onLoginClick }) {
           </Button>
         ) : (
           <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
+            <DropdownMenuTrigger
+              render={<Button variant="outline" size="sm" />}
+            >
               <span className="w-6 h-6 rounded-full bg-[#0E7C7B]/10 flex items-center justify-center shrink-0">
                 <User className="w-3.5 h-3.5 text-[#0E7C7B]" />
               </span>
