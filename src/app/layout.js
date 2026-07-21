@@ -15,8 +15,8 @@ const vazirmatn = localFont({
 })
 
 export const metadata = {
-  title: "Lablens-تحلیل هوشمند آزمایشات پزشکی",
-  description: "تحلیل هوشمند آزمایشات پزشکی",
+  title: "Lablens- تحلیل آزمایش خون با هوش مصنوعی",
+  description: "تحلیل آزمایش خون با هوش مصنوعی",
 };
 
 export default function RootLayout({ children }) {

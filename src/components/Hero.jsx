@@ -6,10 +6,10 @@ export default function Hero() {
     <div className="text-center max-w-2xl mx-auto mb-10">
       <span className="inline-flex items-center gap-2 text-xs font-bold text-[#0E7C7B] bg-[#0E7C7B]/10 px-3 py-1.5 rounded-full mb-5">
         <Droplet className="w-3.5 h-3.5" />
-        تحلیل آزمایشات پزشکی با هوش مصنوعی
+        تحلیل آزمایش خون با هوش مصنوعی
       </span>
       <h1 className="text-3xl sm:text-[42px] font-extrabold leading-[1.3] mb-4">
-        جواب آزمایشت رو بفرست،
+        جواب آزمایش رو بفرست،
         <br />
         <span className="text-[#0E7C7B]">خط به خط</span> برات توضیح می‌دیم
       </h1>
