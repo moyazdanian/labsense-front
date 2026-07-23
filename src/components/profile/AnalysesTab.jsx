@@ -31,6 +31,7 @@ const analysisStatusStyles = {
 
 const FILTERS = [
   { id: "all", label: "همه" },
+  { id: "pending", label: "در حال تحلیل" },
   { id: "completed", label: "موفق" },
   { id: "failed", label: "ناموفق" },
 ];
@@ -43,6 +44,7 @@ const FILTERS = [
 */
 export default function AnalysesTab() {
   const { data: analyses, isLoading } = useAnalysisHistory();
+
   const [filter, setFilter] = useState("all");
 
   if (isLoading) {
@@ -127,7 +129,7 @@ export default function AnalysesTab() {
                     className="block text-[11px] text-[#5C7A7C] mt-0.5"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
-                    {item.date} · {item.time}
+                    {item.date}
                     {clickable && item.itemsCount > 0 && (
                       <> · {item.itemsCount.toLocaleString("fa-IR")} شاخص</>
                     )}

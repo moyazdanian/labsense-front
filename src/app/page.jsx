@@ -83,23 +83,30 @@ export default function LabReportAnalyzerPage() {
 
   const runAnalysis = async (file) => {
     if (!file) return;
-
-    // setStage("analyzing");
+    setStage("analyzing");
     showLoading();
     setErrorMessage("");
 
     try {
       const data = await createAnalysis.mutateAsync(file);
-      sessionStorage.setItem(
-        `analysis_${data.id}`,
-        JSON.stringify(data.result),
-      );
-      router.push(`/analysis/${data.id}`);
-      hideLoading();
+      // hideLoading();
       setPendingFile(null);
+      // بک‌اند بلافاصله با status=pending جواب می‌دهد
+      // polling در useAnalysisHistory شروع می‌شود و وقتی تمام شد toast نمایش می‌دهد
+      toast.success(
+        "تحلیل شما در صف پردازش قرار گرفت. نتیجه به‌زودی آماده می‌شود.",
+        {
+          duration: 5000,
+          action: {
+            label: "پروفایل",
+            onClick: () => router.push("/profile?tab=analyses"),
+          },
+        },
+      );
+      // router.push("/profile?tab=analyses");
     } catch (e) {
-      setErrorMessage(e?.message || "خطا در تحلیل تصویر. دوباره تلاش کنید.");
-      toast.error(e?.message || "خطا در تحلیل تصویر. دوباره تلاش کنید.");
+      setErrorMessage(e?.message || "خطا در ارسال تصویر. دوباره تلاش کنید.");
+      toast.error(e?.message || "خطا در ارسال تصویر. دوباره تلاش کنید.");
       hideLoading();
       setStage("upload");
     }
@@ -138,8 +145,8 @@ export default function LabReportAnalyzerPage() {
   };
 
   const isFirstAnalysis = user ? !user.has_used_first_offer : true;
-  const isAnalyzing = true;
-  // const isAnalyzing = stage === "analyzing";
+  // const isAnalyzing = true;
+  const isAnalyzing = stage === "analyzing";
 
   return (
     <div>

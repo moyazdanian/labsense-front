@@ -59,7 +59,9 @@ const STEPS = [
 export default function HowItWorks() {
   const timelineRef = useRef(null);
   const [progress, setProgress] = useState(0); // 0..1 پر شدن خط
-  const [visibleSteps, setVisibleSteps] = useState(() => STEPS.map(() => false));
+  const [visibleSteps, setVisibleSteps] = useState(() =>
+    STEPS.map(() => false),
+  );
 
   // پر شدن خط عمودی بر اساس موقعیت اسکرول نسبت به سکشن
   useEffect(() => {
@@ -117,7 +119,7 @@ export default function HowItWorks() {
     <section className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
       <div className="text-center max-w-xl mx-auto mb-12">
         <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">
-          مسیر تحلیل آزمایش 
+          مسیر تحلیل آزمایش
         </h2>
         <p className="text-sm text-[#5C7A7C] leading-7">
           از عکس برگه آزمایش تا گزارش قابل فهم — فقط در چند دقیقه
@@ -148,7 +150,7 @@ export default function HowItWorks() {
                 }`}
               >
                 {/* نقطه روی خط */}
-                <div className="absolute right-0 sm:right-1/2 sm:translate-x-1/2 top-1 z-10">
+                <div className="absolute right-0 sm:right-1/2 sm:translate-x-1/2 ">
                   <span
                     className={`relative w-11 h-11 rounded-full border-[3px] flex items-center justify-center transition-all duration-500 ${
                       isActive

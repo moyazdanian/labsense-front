@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { LoadingProvider } from "@/lib/contexts/LoadingContext";
 import Loading from "./loading";
+import { StageProvider } from "@/lib/contexts/StageContext";
 
 const vazirmatn = localFont({
   src: "../../public/fonts/Vazir.ttf"
@@ -50,10 +51,11 @@ export default function RootLayout({ children }) {
             showAtBottom={false}
           />
           <LoadingProvider>
+            <StageProvider>
             <AppLayout>
             {children}
             </AppLayout>
-            <Loading />
+            </StageProvider>
             </LoadingProvider>
             <Toaster 
             position="top-center" 

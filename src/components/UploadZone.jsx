@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Upload, FileImage, Activity } from "lucide-react";
+import { Upload, FileImage, Activity, SquareCheck } from "lucide-react";
 import MedicalLoading from "./Loading";
 import Loading from "@/app/loading";
+import { useStage } from "@/lib/contexts/StageContext";
+import Link from "next/link";
 
 /*
   props:
@@ -14,10 +16,104 @@ export default function UploadZone({ onAnalyze, isAnalyzing }) {
   const [file, setFile] = useState(null);
   const [dragOver, setDragOver] = useState(false);
   const inputRef = useRef(null);
+  const { analyseStage, uploadStage } = useStage();
 
   const handleFiles = (files) => {
     if (files && files[0]) setFile(files[0]);
   };
+
+  if (analyseStage === "success") {
+    return (
+      <div
+        className={`relative rounded-3xl border-2 border-dashed transition-colors duration-200 ${
+          dragOver
+            ? "border-[#0E7C7B] bg-[#EAF7F6]"
+            : "border-[#BFE3E1] bg-white"
+        } p-8 sm:p-12 text-center`}
+      >
+        {/* گوشه‌های متقاطع شبیه برگه آزمایش */}
+        <span className="absolute top-4 right-4 w-3 h-3 border-t-2 border-r-2 border-[#0E7C7B]/30 rounded-tr" />
+        <span className="absolute top-4 left-4 w-3 h-3 border-t-2 border-l-2 border-[#0E7C7B]/30 rounded-tl" />
+        <span className="absolute bottom-4 right-4 w-3 h-3 border-b-2 border-r-2 border-[#0E7C7B]/30 rounded-br" />
+        <span className="absolute bottom-4 left-4 w-3 h-3 border-b-2 border-l-2 border-[#0E7C7B]/30 rounded-bl" />
+
+        <div className="mx-auto w-16 h-16 rounded-2xl bg-[#0E7C7B]/10 flex items-center justify-center mb-5">
+          <SquareCheck className="w-8 h-8 text-[#0E7C7B]" strokeWidth={1.75} />
+        </div>
+
+        <p className="text-[#0B2B2E] font-bold text-lg mb-1">
+          تحلیل شما آماده شده و در پنل کاربری قابل مشاهده است
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link
+            href="/profile?tab=analyses"
+            className="px-6 py-3 rounded-xl bg-[#0B2B2E] text-white font-bold text-sm hover:bg-[#0B2B2E]/90 transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+          >
+            مشاهده تحلیل
+          </Link>
+          <button
+            onClick={() => uploadStage()}
+            className="px-6 py-3 rounded-xl bg-[#dbe9eb] text-[#0B2B2E] font-bold text-sm hover:bg-[#0B2B2E]/90 hover:text-white transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+          >
+            تحلیل جدید
+          </button>
+        </div>
+
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/png,image/jpeg"
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+      </div>
+    );
+  }
+
+  if (analyseStage === "error") {
+    return (
+      <div
+        className={`relative rounded-3xl border-2 border-dashed transition-colors duration-200 ${
+          dragOver
+            ? "border-[#0E7C7B] bg-[#EAF7F6]"
+            : "border-[#BFE3E1] bg-white"
+        } p-8 sm:p-12 text-center`}
+      >
+        {/* گوشه‌های متقاطع شبیه برگه آزمایش */}
+        <span className="absolute top-4 right-4 w-3 h-3 border-t-2 border-r-2 border-[#0E7C7B]/30 rounded-tr" />
+        <span className="absolute top-4 left-4 w-3 h-3 border-t-2 border-l-2 border-[#0E7C7B]/30 rounded-tl" />
+        <span className="absolute bottom-4 right-4 w-3 h-3 border-b-2 border-r-2 border-[#0E7C7B]/30 rounded-br" />
+        <span className="absolute bottom-4 left-4 w-3 h-3 border-b-2 border-l-2 border-[#0E7C7B]/30 rounded-bl" />
+
+        <div className="mx-auto w-16 h-16 rounded-2xl bg-[#0E7C7B]/10 flex items-center justify-center mb-5">
+          <SquareCheck className="w-8 h-8 text-[#0E7C7B]" strokeWidth={1.75} />
+        </div>
+
+        <p className="text-[#8d212a] font-bold text-lg mb-1">
+          خطایی در تحلیل شما به وجود آمده اعتبار تحلیل به حساب شما بازگردانده شده است و میتوانید دوباره تلاش کنید.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          
+          <button
+            onClick={() => uploadStage()}
+            className="px-6 py-3 rounded-xl bg-[#dbe9eb] text-[#0B2B2E] font-bold text-sm hover:bg-[#0B2B2E]/90 hover:text-white transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+          >
+            تحلیل جدید
+          </button>
+        </div>
+
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/png,image/jpeg"
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div
