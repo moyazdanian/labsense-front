@@ -23,6 +23,7 @@ export default function BlogCard({ post }) {
             fill
             sizes="(max-width:768px) 100vw, 33vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
+            quality={10}
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-violet-100 flex items-center justify-center">

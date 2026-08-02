@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export const revalidate = 3600;
 
-const SITE_URL ="https://lablens.ir";
+const SITE_URL ="https://www.lablens.ir";
 
 const STATIC_ROUTES = [
   { path: "/", priority: 1.0, changeFrequency: "daily" },
