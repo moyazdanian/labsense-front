@@ -21,6 +21,8 @@ export async function generateMetadata({ params }) {
   const data = await getBlogPost(slug).catch(() => null);
   const post = data.data;
 
+  console.log(data);
+
   if (!post) return { title: "مقاله یافت نشد" };
 
   const { seo } = data;
@@ -29,12 +31,12 @@ export async function generateMetadata({ params }) {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords ?? undefined,
-    alternates: { canonical: seo.canonical_url },
+    alternates: { canonical: seo.canonical },
     openGraph: {
       type: "article",
       title: seo.og_title,
       description: seo.og_description,
-      url: seo.canonical_url,
+      url: seo.canonical,
       images: seo.og_image ? [{ url: seo.og_image }] : undefined,
       publishedTime: seo.published_time ?? undefined,
       modifiedTime: seo.modified_time,
@@ -56,7 +58,6 @@ export default async function BlogPostPage({ params }) {
   const data = await getBlogPost(slug).catch(() => null);
   const post = data.data;
 
-  console.log(post);
 
   if (!post) notFound();
 
