@@ -29,12 +29,12 @@ export async function generateMetadata({ params }) {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords ?? undefined,
-    alternates: { canonical: seo.canonical },
+    alternates: { canonical: seo.canonical_url },
     openGraph: {
       type: "article",
       title: seo.og_title,
       description: seo.og_description,
-      url: seo.canonical,
+      url: seo.canonical_url,
       images: seo.og_image ? [{ url: seo.og_image }] : undefined,
       publishedTime: seo.published_time ?? undefined,
       modifiedTime: seo.modified_time,
@@ -186,6 +186,15 @@ export default async function BlogPostPage({ params }) {
           </div>
         )}
 
+        {/* ── CTA Banner ─────────────────────────────────────────────── */}
+        <LabTestCTA
+          href="/"
+          ctaTitle={ctaTitle}
+          ctaDesc={ctaDesc}
+          ctaUrl={ctaUrl}
+          ctaBtn={ctaBtn}
+        />
+
         {/* ── Body ───────────────────────────────────────────────────── */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
           <div
@@ -199,7 +208,13 @@ export default async function BlogPostPage({ params }) {
         </div>
 
         {/* ── CTA Banner ─────────────────────────────────────────────── */}
-        <LabTestCTA href="/" ctaTitle={ctaTitle} ctaDesc={ctaDesc} ctaUrl={ctaUrl} ctaBtn={ctaBtn} />
+        <LabTestCTA
+          href="/"
+          ctaTitle={ctaTitle}
+          ctaDesc={ctaDesc}
+          ctaUrl={ctaUrl}
+          ctaBtn={ctaBtn}
+        />
 
         {/* ── Related Posts ──────────────────────────────────────────── */}
         {related.length > 0 && (
